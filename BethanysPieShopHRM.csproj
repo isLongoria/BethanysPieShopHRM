@@ -13,4 +13,9 @@
     <None Remove="BethanysPieShopHRM.Shared\obj\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Components\Widgets\EmployeeCountWidget.razor" />
+    <None Include="Components\Widgets\InboxWidget.razor" />
+  </ItemGroup>
+
 </Project>
