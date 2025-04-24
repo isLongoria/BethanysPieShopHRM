@@ -25,10 +25,17 @@ namespace BethanysPieShopHRM
                     ));
 
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-            builder.Services.AddScoped<IEmployeeDataService, EmployeeDataService>();
-            builder.Services.AddScoped<ApplicationState>();
+            builder.Services.AddScoped<IEmployeeDataService, EmployeeDataService>();            
             builder.Services.AddScoped<ITimeRegistrationRepository, TimeRegistrationRepository>();
             builder.Services.AddScoped<ITimeRegistrationDataService, TimeRegistrationDataService>();
+            builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+            builder.Services.AddScoped<ICountryDataService, CountryDataService>();
+            builder.Services.AddScoped<IJobCategoryRepository, JobCategoryRepository>();
+            builder.Services.AddScoped<IJobCategoryDataService, JobCategoryDataService>();
+
+            builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            builder.Services.AddScoped<ApplicationState>();
 
             var app = builder.Build();
 
