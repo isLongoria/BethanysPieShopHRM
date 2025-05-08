@@ -1,11 +1,12 @@
-﻿using BethanysPieShopHRM.Contracts.Services;
+﻿using BethanysPieShopHRM.Client;
+using BethanysPieShopHRM.Contracts.Services;
 using BethanysPieShopHRM.Shared.Domain;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace BethanysPieShopHRM.Components.Pages
 {
-	public partial class EmployeeEdit 
+    public partial class EmployeeEdit 
 	{
 		[Inject]
 		IEmployeeDataService EmployeeDataService { get; set; }
