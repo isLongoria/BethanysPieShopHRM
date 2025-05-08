@@ -6,6 +6,8 @@ using BethanysPieShopHRM.Repositories;
 using BethanysPieShopHRM.Services;
 using BethanysPieShopHRM.State;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Components.Server;
+using BethanysPieShopHRM.Client;
 
 namespace BethanysPieShopHRM
 {
@@ -17,7 +19,8 @@ namespace BethanysPieShopHRM
 
             // Add services to the container.
             builder.Services.AddRazorComponents()
-                            .AddInteractiveServerComponents();
+                            .AddInteractiveServerComponents()
+                            .AddInteractiveWebAssemblyComponents();
 
             builder.Services.AddDbContextFactory<AppDbContext>(options =>
                 options.UseSqlServer(
@@ -49,7 +52,12 @@ namespace BethanysPieShopHRM
             app.UseAntiforgery();
 
             app.MapRazorComponents<App>()
-               .AddInteractiveServerRenderMode();
+               .AddInteractiveServerRenderMode()
+               .AddInteractiveWebAssemblyRenderMode()
+               .AddAdditionalAssemblies(typeof
+               (BethanysPieShopHRM.Client._Imports).Assembly);
+
+            app.MapGet("/api/employee", async (IEmployeeDataService employeeDataService) => await employeeDataService.GetAllEmployees());
 
             app.Run();
         }

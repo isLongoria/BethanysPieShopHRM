@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="BethanysPieShopHRM.Shared\obj\**" />
-    <Content Remove="BethanysPieShopHRM.Shared\obj\**" />
-    <EmbeddedResource Remove="BethanysPieShopHRM.Shared\obj\**" />
-    <None Remove="BethanysPieShopHRM.Shared\obj\**" />
+    <Compile Remove="BethanysPieShopHRM.Client\**" />
+    <Compile Remove="BethanysPieShopHRM.Shared\**" />
+    <Content Remove="BethanysPieShopHRM.Client\**" />
+    <Content Remove="BethanysPieShopHRM.Shared\**" />
+    <EmbeddedResource Remove="BethanysPieShopHRM.Client\**" />
+    <EmbeddedResource Remove="BethanysPieShopHRM.Shared\**" />
+    <None Remove="BethanysPieShopHRM.Client\**" />
+    <None Remove="BethanysPieShopHRM.Shared\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +24,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
       <PrivateAssets>all</PrivateAssets>
@@ -29,6 +34,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="BethanysPieShopHRM.Client\BethanysPieShopHRM.Client.csproj" />
   </ItemGroup>
 
 </Project>
